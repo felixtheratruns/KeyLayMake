@@ -717,7 +717,6 @@ class TableWindow(Gtk.Window):
         fullgrid.attach(menu, 50, 16, 5, 4)
         fullgrid.attach(rctl, 55, 16, 5, 4)
 
-
 win = TableWindow()
 win.connect("delete-event", Gtk.main_quit)
 win.show_all()
