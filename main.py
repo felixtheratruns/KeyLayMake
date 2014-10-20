@@ -8,14 +8,21 @@ class TableWindow(Gtk.Window):
     def __init__(self):
         Gtk.Window.__init__(self, title="Table Example")
     #    Gtk.Window.maximize(self)
-        grid1 = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
-        grid2 = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
-        grid3 = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
-        grid4 = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
-        grid5 = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
 
-        parent = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=10)
-        self.add(parent)
+#        fullgrid = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
+#        fullgrid = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
+#        fullgrid = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
+#        fullgrid = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
+#        fullgrid = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
+
+
+        fullgrid = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=1, row_spacing=1)
+
+
+
+
+#        parent = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=10)
+#        self.add(parent)
 
 
         tlde = Gtk.Grid(column_homogeneous=True, row_homogeneous=True)
@@ -657,324 +664,77 @@ class TableWindow(Gtk.Window):
         rctl.attach(br, 1, 1, 1, 1)
 
 
-        grid1.attach(tlde, 0, 0, 4, 1)
-        grid1.attach(ae01, 4, 0, 4, 1)
-        grid1.attach(ae02, 8, 0, 4, 1)
-        grid1.attach(ae03, 12, 0, 4, 1)
-        grid1.attach(ae04, 16, 0, 4, 1)
-        grid1.attach(ae05, 20, 0, 4, 1)
-        grid1.attach(ae06, 24, 0, 4, 1)
-        grid1.attach(ae07, 28, 0, 4, 1)
-        grid1.attach(ae08, 32, 0, 4, 1)
-        grid1.attach(ae09, 36, 0, 4, 1)
-        grid1.attach(ae10, 40, 0, 4, 1)
-        grid1.attach(ae11, 44, 0, 4, 1)
-        grid1.attach(ae12, 48, 0, 4, 1)
-        grid1.attach(bksp, 52, 0, 8, 1)
 
-        grid2.attach(tab, 0, 0, 6, 1)
-        grid2.attach(ad01, 6, 0, 4, 1)
-        grid2.attach(ad02, 10, 0, 4, 1)
-        grid2.attach(ad03, 14, 0, 4, 1)
-        grid2.attach(ad04, 18, 0, 4, 1)
-        grid2.attach(ad05, 22, 0, 4, 1)
-        grid2.attach(ad06, 26, 0, 4, 1)
-        grid2.attach(ad07, 30, 0, 4, 1)
-        grid2.attach(ad08, 34, 0, 4, 1)
-        grid2.attach(ad09, 38, 0, 4, 1)
-        grid2.attach(ad10, 42, 0, 4, 1)
-        grid2.attach(ad11, 46, 0, 4, 1)
-        grid2.attach(ad12, 50, 0, 4, 1)
-        grid2.attach(bksl, 54, 0, 6, 1)
+        fullgrid.attach(tlde,  0, 0, 4, 4)
+        fullgrid.attach(ae01,  4, 0, 4, 4)
+        fullgrid.attach(ae02,  8, 0, 4, 4)
+        fullgrid.attach(ae03, 12, 0, 4, 4)
+        fullgrid.attach(ae04, 16, 0, 4, 4)
+        fullgrid.attach(ae05, 20, 0, 4, 4)
+        fullgrid.attach(ae06, 24, 0, 4, 4)
+        fullgrid.attach(ae07, 28, 0, 4, 4)
+        fullgrid.attach(ae08, 32, 0, 4, 4)
+        fullgrid.attach(ae09, 36, 0, 4, 4)
+        fullgrid.attach(ae10, 40, 0, 4, 4)
+        fullgrid.attach(ae11, 44, 0, 4, 4)
+        fullgrid.attach(ae12, 48, 0, 4, 4)
+        fullgrid.attach(bksp, 52, 0, 8, 4)
 
-        grid3.attach(caps,  0, 0, 7, 1)
-        grid3.attach(ac01,  7, 0, 4, 1)
-        grid3.attach(ac02, 11, 0, 4, 1)
-        grid3.attach(ac03, 15, 0, 4, 1)
-        grid3.attach(ac04, 19, 0, 4, 1)
-        grid3.attach(ac05, 23, 0, 4, 1)
-        grid3.attach(ac06, 27, 0, 4, 1)
-        grid3.attach(ac07, 31, 0, 4, 1)
-        grid3.attach(ac08, 35, 0, 4, 1)
-        grid3.attach(ac09, 39, 0, 4, 1)
-        grid3.attach(ac10, 43, 0, 4, 1)
-        grid3.attach(ac11, 47, 0, 4, 1)
-        grid3.attach(rtrn, 51, 0, 9, 1)
+        fullgrid.attach(tab,   0, 4, 6, 4)
+        fullgrid.attach(ad01,  6, 4, 4, 4)
+        fullgrid.attach(ad02, 10, 4, 4, 4)
+        fullgrid.attach(ad03, 14, 4, 4, 4)
+        fullgrid.attach(ad04, 18, 4, 4, 4)
+        fullgrid.attach(ad05, 22, 4, 4, 4)
+        fullgrid.attach(ad06, 26, 4, 4, 4)
+        fullgrid.attach(ad07, 30, 4, 4, 4)
+        fullgrid.attach(ad08, 34, 4, 4, 4)
+        fullgrid.attach(ad09, 38, 4, 4, 4)
+        fullgrid.attach(ad10, 42, 4, 4, 4)
+        fullgrid.attach(ad11, 46, 4, 4, 4)
+        fullgrid.attach(ad12, 50, 4, 4, 4)
+        fullgrid.attach(bksl, 54, 4, 6, 4)
 
-
-        grid4.attach(lfsh,  0, 0, 9, 1)
-        grid4.attach(ab01,  9, 0, 4, 1)
-        grid4.attach(ab02, 13, 0, 4, 1)
-        grid4.attach(ab03, 17, 0, 4, 1)
-        grid4.attach(ab04, 21, 0, 4, 1)
-        grid4.attach(ab05, 25, 0, 4, 1)
-        grid4.attach(ab06, 29, 0, 4, 1)
-        grid4.attach(ab07, 33, 0, 4, 1)
-        grid4.attach(ab08, 37, 0, 4, 1)
-        grid4.attach(ab09, 41, 0, 4, 1)
-        grid4.attach(ab10, 45, 0, 4, 1)
-        grid4.attach(rtsh, 49, 0, 11, 1)
-
-        grid5.attach(lctl, 0, 0, 5, 1)
-        grid5.attach(lwin, 5, 0, 5, 1)
-        grid5.attach(lalt, 10, 0, 5, 1)
-        grid5.attach(spce, 15, 0, 25, 1)
-        grid5.attach(ralt, 40, 0, 5, 1)
-        grid5.attach(rwin, 45, 0, 5, 1)
-        grid5.attach(menu, 50, 0, 5, 1)
-        grid5.attach(rctl, 55, 0, 5, 1)
-
-        parent.attach(grid1, 0, 0, 1, 1)
-        parent.attach(grid2, 0, 1, 1, 1)
-        parent.attach(grid3, 0, 2, 1, 1)
-        parent.attach(grid4, 0, 3, 1, 1)
-        parent.attach(grid5, 0, 4, 1, 1)
-
-"""
-        grid1.attach(lctl, 0, 0, 4, 4)
-        grid1.attach(lwin, 6, 0, 4, 4)
-        grid1.attach(ae02, 8, 0, 4, 4)
-        grid1.attach(ae03, 12, 0, 4, 4)
-        grid1.attach(ae04, 16, 0, 4, 4)
-        grid1.attach(ae05, 20, 0, 4, 4)
-        grid1.attach(ae06, 24, 0, 4, 4)
-        grid1.attach(ae07, 28, 0, 4, 4)
-        grid1.attach(ae08, 32, 0, 4, 4)
-        grid1.attach(ae09, 36, 0, 4, 4)
-        grid1.attach(ae10, 40, 0, 4, 4)
-        grid1.attach(ae11, 44, 0, 4, 4)
-        grid1.attach(ae12, 48, 0, 4, 4)
-        grid1.attach(bksp, 52, 0, 8, 4)
-"""
+        fullgrid.attach(caps,  0, 8, 7, 4)
+        fullgrid.attach(ac01,  7, 8, 4, 4)
+        fullgrid.attach(ac02, 11, 8, 4, 4)
+        fullgrid.attach(ac03, 15, 8, 4, 4)
+        fullgrid.attach(ac04, 19, 8, 4, 4)
+        fullgrid.attach(ac05, 23, 8, 4, 4)
+        fullgrid.attach(ac06, 27, 8, 4, 4)
+        fullgrid.attach(ac07, 31, 8, 4, 4)
+        fullgrid.attach(ac08, 35, 8, 4, 4)
+        fullgrid.attach(ac09, 39, 8, 4, 4)
+        fullgrid.attach(ac10, 43, 8, 4, 4)
+        fullgrid.attach(ac11, 47, 8, 4, 4)
+        fullgrid.attach(rtrn, 51, 8, 9, 4)
 
 
+        fullgrid.attach(lfsh,  0, 12, 9, 4)
+        fullgrid.attach(ab01,  9, 12, 4, 4)
+        fullgrid.attach(ab02, 13, 12, 4, 4)
+        fullgrid.attach(ab03, 17, 12, 4, 4)
+        fullgrid.attach(ab04, 21, 12, 4, 4)
+        fullgrid.attach(ab05, 25, 12, 4, 4)
+        fullgrid.attach(ab06, 29, 12, 4, 4)
+        fullgrid.attach(ab07, 33, 12, 4, 4)
+        fullgrid.attach(ab08, 37, 12, 4, 4)
+        fullgrid.attach(ab09, 41, 12, 4, 4)
+        fullgrid.attach(ab10, 45, 12, 4, 4)
+        fullgrid.attach(rtsh, 49, 12, 11,4)
 
+        fullgrid.attach(lctl, 0, 16, 5, 4)
+        fullgrid.attach(lwin, 5, 16, 5, 4)
+        fullgrid.attach(lalt, 10, 16, 5, 4)
+        fullgrid.attach(spce, 15, 16, 25, 4)
+        fullgrid.attach(ralt, 40, 16, 5, 4)
+        fullgrid.attach(rwin, 45, 16, 5, 4)
+        fullgrid.attach(menu, 50, 16, 5, 4)
+        fullgrid.attach(rctl, 55, 16, 5, 4)
 
-
-
-
-
-"""
-        grid1.attach(button3,)
-        grid1.attach(button4,)
-        grid1.attach(button5)
-        grid1.attach(button6)
-        grid1.attach(button7)
-        grid1.attach(button8)
-        grid1.attach(button9)
-        grid1.attach(button10)
-        grid1.attach(button11)
-        grid1.attach(button12)
-        grid1.attach(button13)
-        grid1.attach(button14)
-"""
-
-
-"""
-        grid1.add(button1)
-        grid1.add(button2)
-        grid1.add(button3)
-        grid1.add(button4)
-        grid1.add(button5)
-        grid1.add(button6)
-        grid1.add(button7)
-        grid1.add(button8)
-        grid1.add(button9)
-        grid1.add(button10)
-        grid1.add(button11)
-        grid1.add(button12)
-        grid1.add(button13)
-        grid1.add(button14)
-"""
-
-
-
-
-    #    button1 = Gtk.Button(label="Button 1")
-    #    button2 = Gtk.Button(label="Button 2")
-
-
-    #    table.attach(button1, 4, 5, 0, 15)
-    #    button3 = Gtk.Button(label="Button 3")
-    #    button4 = Gtk.Button(label="Button 4")
-    #    button5 = Gtk.Button(label="Button 5")
-    #    button6 = Gtk.Button(label="Button 6")
-    #    table.attach(button1,)
-
-
-    #    table.attach(button2, 1, 3, 0, 1)
-    #    table.attach(button3, 0, 1, 1, 3)
-    #    table.attach(button4, 1, 3, 1, 2)
-    #    table.attach(button5, 1, 2, 2, 3)
-    #    table.attach(button6, 2, 3, 2, 3)
 
 win = TableWindow()
 win.connect("delete-event", Gtk.main_quit)
 win.show_all()
 Gtk.main()
 
-
-"""
-    builder = Gtk.Builder()
-    builder.add_from_file("example.glade")
-    window = builder.get_object("window1")
-    window.show_all()
-"""
-"""
-    def __init__(self):
-        Gtk.Window.__init__(self, title="Stack Demo")
-        self.set_border_width(10)
-
-        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
-        self.add(vbox)
-
-        stack = Gtk.Stack()
-        stack.set_transition_type(Gtk.StackTransitionType.SLIDE_LEFT_RIGHT)
-        stack.set_transition_duration(1000)
-
-        checkbutton = Gtk.CheckButton("Click me!")
-        stack.add_titled(checkbutton, "check", "Check Button")
-
-        label = Gtk.Label()
-        label.set_markup("<big>A fancy label</big>")
-        stack.add_titled(label, "label", "A label")
-
-        stack_switcher = Gtk.StackSwitcher()
-        stack_switcher.set_stack(stack)
-        vbox.pack_start(stack_switcher, True, True, 0)
-        vbox.pack_start(stack, True, True, 0)
-        """
-
-"""
-    def __init__(self):
-        Gtk.Window.__init__(self, title="ListBox Demo")
-        self.set_border_width(10)
-
-        hbox = Gtk.Box(spacing=6)
-        self.add(hbox)
-
-        listbox = Gtk.ListBox()
-        listbox.set_selection_mode(Gtk.SelectionMode.NONE)
-        hbox.pack_start(listbox, True, True, 0)
-
-        row = Gtk.ListBoxRow()
-        hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=50)
-        row.add(hbox)
-        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        hbox.pack_start(vbox, True, True, 0)
-
-        label1 = Gtk.Label("Automatic Date & Time", xalign=0)
-        label2 = Gtk.Label("Requires internet access", xalign=0)
-        vbox.pack_start(label1, True, True, 0)
-        vbox.pack_start(label2, True, True, 0)
-
-        switch = Gtk.Switch()
-        switch.props.valign = Gtk.Align.CENTER
-        hbox.pack_start(switch, False, True, 0)
-
-        listbox.add(row)
-
-        row = Gtk.ListBoxRow()
-        hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=50)
-        row.add(hbox)
-        label = Gtk.Label("Enable Automatic Update", xalign=0)
-        check = Gtk.CheckButton()
-        hbox.pack_start(label, True, True, 0)
-        hbox.pack_start(check, False, True, 0)
-
-        listbox.add(row)
-
-        row = Gtk.ListBoxRow()
-        hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=50)
-        row.add(hbox)
-        label = Gtk.Label("Date Format", xalign=0)
-        combo = Gtk.ComboBoxText()
-        combo.insert(0, "0", "24-hour")
-        combo.insert(1, "1", "AM/PM")
-        hbox.pack_start(label, True, True, 0)
-        hbox.pack_start(combo, False, True, 0)
-
-        listbox.add(row)
-
-"""
-"""
-#grid window
-#Gtk.Grid is a container which arranges its child widgets in rows and columns,
- #but you do not need to specify the dimensions in the constructor. Children are added using Gtk.Grid.attach().
-    def __init__(self):
-        Gtk.Window.__init__(self, title="Grid Example")
-
-        grid = Gtk.Grid()
-        self.add(grid)
-
-        button1 = Gtk.Button(label="Button 1")
-        button2 = Gtk.Button(label="Button 2")
-        button3 = Gtk.Button(label="Button 3")
-        button4 = Gtk.Button(label="Button 4")
-        button5 = Gtk.Button(label="Button 5")
-        button6 = Gtk.Button(label="Button 6")
-
-        grid.add(button1)
-        grid.attach(button2, 1, 0, 2, 1)
-        grid.attach_next_to(button3, button1, Gtk.PositionType.BOTTOM, 1, 2)
-        grid.attach_next_to(button4, button3, Gtk.PositionType.RIGHT, 2, 1)
-        grid.attach(button5, 1, 2, 1, 1)
-        grid.attach_next_to(button6, button5, Gtk.PositionType.RIGHT, 1, 1)
-"""
-
-"""
-
- # first example simple box with buttons
-# While with Gtk.Box.pack_start() widgets are positioned from left to right, Gtk.Box.pack_end() positions them from right to left.
-    def __init__(self):
-        Gtk.Window.__init__(self, title="Hello World")
-
-        self.box = Gtk.Box(spacing=6)
-        self.add(self.box)
-
-        self.button1 = Gtk.Button(label="Hello")
-        self.button1.connect("clicked", self.on_button1_clicked)
-        self.box.pack_start(self.button1, True, True, 0)
-
-        self.button2 = Gtk.Button(label="Goodbye")
-        self.button2.connect("clicked", self.on_button2_clicked)
-        self.box.pack_start(self.button2, True, True, 0)
-
-    def on_button1_clicked(self, widget):
-        print("Hello")
-
-    def on_button2_clicked(self, widget):
-        print("Goodbye")
-"""
-
-"""
-
-    def __init__(self):
-        Gtk.Window.__init__(self, title="Hello World")
-
-        self.button = Gtk.Button(label="Click Here")
-        self.button.connect("clicked", self.on_button_clicked)
-        self.add(self.button)
-
-    def on_button_clicked(self, widget):
-        print("Hello World")
-"""
-
-"""
-        tlde = Gtk.Button(label="`")
-        ae01 = Gtk.Button(label="1")
-        ae02 = Gtk.Button(label="2")
-        ae03 = Gtk.Button(label="3")
-        ae04 = Gtk.Button(label="4")
-        ae05 = Gtk.Button(label="5")
-
-        ae06 = Gtk.Button(label="6")
-        ae07 = Gtk.Button(label="7")
-        ae08 = Gtk.Button(label="8")
-        ae09 = Gtk.Button(label="9")
-        ae10 = Gtk.Button(label="0")
-        ae11 = Gtk.Button(label="[")
-
-        ae12 = Gtk.Button(label="]")
-        bksp = Gtk.Button(label="backsp")
-"""
