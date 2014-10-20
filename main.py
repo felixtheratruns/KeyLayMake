@@ -7,23 +7,8 @@ class TableWindow(Gtk.Window):
 
     def __init__(self):
         Gtk.Window.__init__(self, title="Table Example")
-    #    Gtk.Window.maximize(self)
-
-#        fullgrid = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
-#        fullgrid = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
-#        fullgrid = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
-#        fullgrid = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
-#        fullgrid = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=1)
-
-
-        fullgrid = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=1, row_spacing=1)
-
-
-
-
-#        parent = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=10)
-#        self.add(parent)
-
+        fullgrid = Gtk.Grid(column_homogeneous=True, row_homogeneous=True, column_spacing=10, row_spacing=10)
+        self.add(fullgrid)
 
         tlde = Gtk.Grid(column_homogeneous=True, row_homogeneous=True)
         tl = Gtk.Button(label="~")
