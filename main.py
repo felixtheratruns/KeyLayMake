@@ -105,9 +105,11 @@ class TableWindow(Gtk.Window):
         re.set_property("editable", True)
         col2_cr = Gtk.CellRendererText()
         col2_cr.set_property("editable", True)
+ #       col2_cr.set_property("alignment", Gtk.CellRendererText.pango.alignment.LEFT)
         col2 = Gtk.TreeViewColumn("r", col2_cr, text=1)
         treeview.append_column(col2)
         col2_cr.connect("edited", self.text_edited)
+        treeview.set_headers_visible(False)
         return treeview
 
     def __init__(self):
@@ -118,19 +120,22 @@ class TableWindow(Gtk.Window):
 #        tl = ButtonDragging()
 
 
-        tlde = self.make_key(tr="~")
- #       tlde = Gtk.Grid(column_homogeneous=True, row_homogeneous=True)
+        tlde = self.make_key(tl="~", tr="~")
+
+        tlde = Gtk.Grid(column_homogeneous=True, row_homogeneous=True)
         tl = Gtk.Button()
         tr = Gtk.Button()
-#        bl = Gtk.Button("")
-        bl = ButtonDrop()
+        bl = Gtk.Button()
         br = Gtk.Button()
+        tlde.attach(tl, 0, 0, 1, 1)
+        tlde.attach(tr, 1, 0, 1, 1)
+        tlde.attach(bl, 0, 1, 1, 1)
+        tlde.attach(br, 1, 1, 1, 1)
 
 
-#        tlde.attach(tl, 0, 0, 1, 1)
-#        tlde.attach(tr, 1, 0, 1, 1)
-#        tlde.attach(bl, 0, 1, 1, 1)
-#        tlde.attach(br, 1, 1, 1, 1)
+
+#        ae01 = self.make_key(tl="!", bl="1")
+
 
         ae01 = Gtk.Grid(column_homogeneous=True, row_homogeneous=True)
         tl = Gtk.Button(label="!")
@@ -765,6 +770,7 @@ class TableWindow(Gtk.Window):
 
         fullgrid.attach(tlde,  0, 0, 4, 4)
         fullgrid.attach(ae01,  4, 0, 4, 4)
+
         fullgrid.attach(ae02,  8, 0, 4, 4)
         fullgrid.attach(ae03, 12, 0, 4, 4)
         fullgrid.attach(ae04, 16, 0, 4, 4)
@@ -829,7 +835,6 @@ class TableWindow(Gtk.Window):
         fullgrid.attach(rwin, 45, 16, 5, 4)
         fullgrid.attach(menu, 50, 16, 5, 4)
         fullgrid.attach(rctl, 55, 16, 5, 4)
-
 """
         self.liststore = Gtk.ListStore(str, str)
         self.liststore.append(["a", "b"])
