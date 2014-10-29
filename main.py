@@ -13,82 +13,6 @@ COLUMN_TEXT = 0
 
 DRAG_ACTION = Gdk.DragAction.COPY
 
-class DragDropWindow(Gtk.Window):
-
-    def __init__(self):
-        Gtk.Window.__init__(self, title="Drag and Drop Demo")
-        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
-        self.add(vbox)
-        hbox = Gtk.Box()
-        vbox.pack_start(hbox, True, True, 0)
-        self.iconview = DragSourceIconView()
-        self.drop_area = DropArea()
-        hbox.pack_start(self.iconview, True, True, 0)
-        hbox.pack_start(self.drop_area, True, True, 0)
-        self.add_text_targets()
-
-    def add_text_targets(self, button=None):
-        self.drop_area.drag_dest_set_target_list(None)
-        self.iconview.drag_source_set_target_list(None)
-        self.drop_area.drag_dest_add_text_targets()
-        self.iconview.drag_source_add_text_targets()
-
-class DragSourceIconView(Gtk.IconView):
-    def __init__(self):
-        Gtk.IconView.__init__(self)
-        self.set_text_column(COLUMN_TEXT)
-        model = Gtk.ListStore(str)
-        self.set_model(model)
-        self.add_item("Item 1")
-        self.add_item("Item 2")
-        self.add_item("Item 3")
-        self.enable_model_drag_source(Gdk.ModifierType.BUTTON1_MASK, [],
-            DRAG_ACTION)
-        self.connect("drag-data-get", self.on_drag_data_get)
-
-    def on_drag_data_get(self, widget, drag_context, data, info, time):
-        selected_path = self.get_selected_items()[0]
-        selected_iter = self.get_model().get_iter(selected_path)
-        if info == TARGET_ENTRY_TEXT:
-            text = self.get_model().get_value(selected_iter, COLUMN_TEXT)
-            data.set_text(text, -1)
-
-    def add_item(self, text):
-        self.get_model().append([text])
-
-
-class ButtonDragging(Gtk.CellRendererText):
-    def __init__(self):
-        Gtk.CellRendererText.__init__(self)
-#        self.set_text_column(COLUMN_TEXT)
-#        model = Gtk.ListStore(str)
-#        self.set_model(model)
-#        self.add_item("~")
-        self.enable_model_drag_source(Gdk.ModifierType.BUTTON1_MASK, [], DRAG_ACTION)
-        self.connect("drag-data-get", self.on_drag_data_get)
-
-    def on_drag_data_get(self, widget, drag_context, data, info, time):
-        selected_path = self.get_selected_items()[0]
-        selected_iter = self.get_model().get_iter(selected_path)
-        text = self.get_model().get_value(selected_iter, COLUMN_TEXT)
-        data.set_text(text, -1)
-
-    def add_item(self, text):
-        self.get_model().append([text])
-
-
-
-class ButtonDrop(Gtk.Label):
-    def __init__(self):
-        Gtk.Label.__init__(self, "")
-        self.drag_dest_set(Gtk.DestDefaults.ALL, [], DRAG_ACTION)
-        self.connect("drag-data-received", self.on_drag_data_received)
-
-    def on_drag_data_received(self, widget, drag_context, x,y, data,info, time):
-        text = data.get_text()
-        print("Received text: %s" % text)
-
-
 class TableWindow(Gtk.Window):
     def text_edited(self, widget, path, text):
         self.liststore[path][1] = text
@@ -101,29 +25,12 @@ class TableWindow(Gtk.Window):
         col1_cr = Gtk.CellRendererText()
         col1_cr.set_property("editable",True)
         col1 = Gtk.TreeViewColumn("l", col1_cr, text=0)
+        col1.set_expand(True)
         treeview.append_column(col1)
         col2_cr = Gtk.CellRendererText()
         col2_cr.set_property("editable", True)
         col2 = Gtk.TreeViewColumn("r", col2_cr, text=1)
-        treeview.append_column(col2)
-        col2_cr.connect("edited", self.text_edited)
-        treeview.set_headers_visible(False)
-        return treeview
-
-
-    def make_key_org(self, tl="",tr="",bl="",br=""):
-        self.liststore = Gtk.ListStore(str, str)
-        self.liststore.append([tl,tr])
-        self.liststore.append([bl,br])
-        treeview = Gtk.TreeView(model=self.liststore)
-        col1_cr = Gtk.CellRendererText()
-        col1_cr.set_property("editable",True)
-        col1 = Gtk.TreeViewColumn("l", col1_cr, text=0)
-        treeview.append_column(col1)
-        col2_cr = Gtk.CellRendererText()
-        col2_cr.set_property("editable", True)
- #       col2_cr.set_property("alignment", Gtk.CellRendererText.pango.alignment.LEFT)
-        col2 = Gtk.TreeViewColumn("r", col2_cr, text=1)
+        col2.set_expand(True)
         treeview.append_column(col2)
         col2_cr.connect("edited", self.text_edited)
         treeview.set_headers_visible(False)
@@ -269,29 +176,6 @@ class TableWindow(Gtk.Window):
         fullgrid.attach(rwin, 45, 16, 5, 4)
         fullgrid.attach(menu, 50, 16, 5, 4)
         fullgrid.attach(rctl, 55, 16, 5, 4)
-"""
-        self.liststore = Gtk.ListStore(str, str)
-        self.liststore.append(["a", "b"])
-        self.liststore.append(["c", "d"])
-
-        self.treeview = Gtk.TreeView(model=self.liststore)
-
-        renderer_text = Gtk.CellRendererText()
-        column_text = Gtk.TreeViewColumn("t", renderer_text, text=0)
-        self.treeview.append_column(column_text)
-
-        renderer_editabletext = Gtk.CellRendererText()
-        renderer_editabletext.set_property("editable", True)
-
-        column_editabletext = Gtk.TreeViewColumn("Editable Text",
-            renderer_editabletext, text=1)
-        self.treeview.append_column(column_editabletext)
-
-        renderer_editabletext.connect("edited", self.text_edited)
-        self.treeview.set_headers_visible(False)
-"""
-
-
 
 win = TableWindow()
 win.connect("delete-event", Gtk.main_quit)
